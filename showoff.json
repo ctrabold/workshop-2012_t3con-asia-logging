@@ -1,0 +1,8 @@
+{
+  "name": "Enable centralized TYPO3 logging",
+  "description": "Use the TYPO3 API to log business related data in your applications",
+  "sections": [
+    { "section":"intro" },
+    { "section":"thank_you" }
+  ]
+}
