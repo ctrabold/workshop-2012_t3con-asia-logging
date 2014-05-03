@@ -1,0 +1,231 @@
+/* Slide style */
+#preso, .slide {
+  background-color: transparent;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 1024px !important;
+  height: 743px !important;
+}
+
+#preso, .slide {
+  border: none !important;
+}
+
+body {
+  font-family: "Actor", "helvetica neue", "helvetica", "lucida grande" , arial, sans-serif;
+  color: #111;
+  background-color: #ccc;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 62px;
+  line-height: 62px;
+}
+
+h2 {
+  font-size: 36px;
+  width: 100% !important;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.slide {
+  background-color: #fff !important;
+  margin: 0 auto ;
+  position: relative !important;
+}
+
+a,
+a:visited,
+a:link {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+h1 a,
+h1 a:visited,
+h1 a:link {
+  color: #263248;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+/* Default widths */
+h2,
+ul,
+code {
+  width: 650px;
+  margin: 0 auto;
+}
+
+.code-740 code {
+  width: 740px;
+}
+
+.center {
+  width: 1024px !important;
+  height: 768px !important;
+}
+
+code {
+  font-size: 21px !important;
+  display: block;
+  text-align: left;
+}
+
+.content ul {
+  margin: 0 auto;
+  width: 756px;
+  list-style: none;
+  list-style-type: none;
+  text-align: left;
+}
+
+ul > li {
+  font-size: 40px;
+  padding: 7px !important;
+  text-align: left;
+}
+
+ul > li:before {
+  content: "» ";
+}
+
+ul > li > ul > li {
+  margin-left: 1em;
+  margin-bottom: 0.2em;
+  font-size: 0.8em;
+}
+
+ul > li > ul > li:before {
+  content: "- ";
+}
+
+.underlined {
+  border-bottom: 10px solid #000;
+}
+
+.full-screen-image {
+  margin-top: 0px !important;
+}
+
+.full-screen-image p {
+  font-size: auto;
+  margin: 0 !important;
+}
+
+.features ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 400px;
+}
+
+.features li {
+  background-color: #7F203B;
+  color: #FFF;
+  margin: 5px 0;
+  margin-left: 0 !important;
+  padding-left: 20px !important;
+}
+
+.features li:before {
+  content: "";
+}
+
+.front {
+  margin-top: 0 !important;
+}
+
+.front img {
+  margin-bottom: -90px !important;
+}
+
+.front h1 {
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: bold;
+  margin: 0 0 0.15em 0;
+}
+
+.big-headline h1,
+.new-chapter h1 {
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 80px;
+}
+
+.new-chapter {
+  background-color: #DD00CC !important;
+  color: #FFF;
+  width: 1024px !important;
+}
+
+/* Code font*/
+code,
+pre {
+  font-family: Consolas,
+    "Andale Mono",
+    "Lucida Console",
+    "Lucida Sans Typewriter",
+    "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono",
+    "Liberation Mono",
+    "Nimbus Mono L",
+    Monaco,
+    "Courier New",
+    Courier,
+    monospace;
+  color: #000;
+  padding: 0.5em;
+  font-size: 18px;
+  background-color: transparent;
+}
+
+pre {
+  margin: 0 auto !important;
+}
+
+code {
+  display: block;
+  border: 1px dashed #263248;
+  background-color: #ddd;
+  width: 700px !important;
+}
+
+
+.slide .center-fixed-top {
+  margin:  100px auto 0 auto !important;
+}
+
+.slide .center-fixed {
+  margin:  150px auto 0 auto !important;
+}
+
+/* Syntax highlighting */
+
+.sh_ruby .sh_keyword {
+  color: #000 !important;
+}
+
+.sh_ruby .sh_string {
+  color: brown !important;
+}
+
+.bullets li {
+  width: 100%;
+  text-align: left !important;
+}
+
+
+/* Custom */
+
+div.heart strong {
+  font-size: 3em
+}

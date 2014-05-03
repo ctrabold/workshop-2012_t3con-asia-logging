@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Enable centralized TYPO3 logging</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/style.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content new-chapter center" ref="intro/presentation/1">
+<h1>Turn plain text into business value</h1>
+
+<p>TYPO3 Conference Asia 2012<br>
+Christian Trabold</br></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/2">
+<h1>What are logs?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/3">
+<h1>Logs == Plain Text</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/4">
+<h1>Log == Protocol</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/5">
+<h1>Every process creates logs</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/6">
+<pre><code>Aug 21 02:47:46 machine http://host/: - cms:
+Locking [simple::...]: Released lock
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/7">
+<pre><code>Aug 21 02:47:48 machine http://host/: - Core:
+File "/var/www/favicon.ico" was not found.
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/8">
+<pre><code>192.168.156.1 - - [20/Aug/2012:15:24:23 +0000]
+"GET /typo3/ajax.php
+HTTP/1.1" 200 7385 "http://host/index.php"
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:14.0)
+Gecko/20100101 Firefox/14.0.1"
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content new-chapter center" ref="intro/presentation/9">
+<h1>Just boring text?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content new-chapter center" ref="intro/presentation/10">
+<h1>NO!</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/11">
+<h1>Interesing!</h1>
+
+<pre><code>192.168.156.1                   &lt;= Who?
+[20/Aug/2012:15:24:23 +0000]    &lt;= When?
+"GET /index.php                 &lt;= What?
+HTTP/1.1" 200                   &lt;= How?
+"Mozilla/5.0 (Macintosh&#x2026;)       &lt;= Who?
+Gecko/20100101 Firefox/14.0.1"  &lt;= Who?
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/12">
+<h1>Alarming!</h1>
+
+<pre><code>192.168.156.1                   &lt;= Who?
+[20/Aug/2012:15:24:23 +0000]    &lt;= When?
+"GET /index.php?id=1 or 1=1 --  &lt;= What?
+HTTP/1.1" 200                   &lt;= How?
+"Mozilla/5.0 (Macintosh&#x2026;)       &lt;= Who?
+Gecko/20100101 Firefox/14.0.1"  &lt;= Who?
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content new-chapter center heart" ref="intro/presentation/13">
+<h1><strong>&#x2665; </strong><br>Heartbeat of your application</br></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/14">
+<p>And the best&#x2026;</p></div>
+</div><div class="slide" data-transition="none"><div class="content new-chapter center" ref="intro/presentation/15">
+<h1>You can write own logs!</h1></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="intro/presentation/16">
+<h1>TYPO3 API</h1>
+
+<pre class="sh_php"><code>t3lib_div::sysLog($msg, $extKey, $severity=0)</code></pre>
+
+<h4>API change in TYPO3 6.0 <a href="https://review.typo3.org/#/c/13604/">https://review.typo3.org/#/c/13604/</a></h4></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/17">
+<p>This <b>should</b> be implemented around the source code, including the Core and both frontend and backend, logging serious
+errors.</p>
+
+<p><strong>&#x2026; and for every action you find interesting!</strong></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/18">
+<p>To implement the sysLog in your applications:</p>
+
+<pre class="sh_php"><code>t3lib_div::sysLog(
+    '[write message in English here]',
+    'extension key'
+);</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/19">
+<h1>Severities</h1>
+
+<pre class="sh_php"><code>0 info (default)
+1 notice
+2 warning
+3 error
+4 fatal</code></pre>
+
+<!--
+    0 Emergency
+    1 Alert
+    2 Critical
+    3 Error
+    4 Warning
+    5 Notice
+    6 Informational
+    7 Debug
+
+[http://en.wikipedia.org/wiki/Syslog](http://en.wikipedia.org/wiki/Syslog)
+-->
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/20">
+<h1>Next:<br> Collect TYPO3 logs in system log</br></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/21">
+<h1>Send TYPO3 logs to syslog:</h1>
+
+<pre class="sh_php"><code>$TYPO3_CONF_VARS['SYS']['systemLog'] = 'syslog,USER';</code></pre>
+
+<p><em>USER</em> namespace avoids conflicts with other logs</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/22">
+<h1>Log every message</h1>
+
+<pre class="sh_php"><code>$TYPO3_CONF_VARS['SYS']['systemLogLevel'] = '0';</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/23">
+<h1>No need for logging in database anymore</h1>
+
+<pre class="sh_php"><code>$TYPO3_CONF_VARS['SYS']['belogErrorReporting'] = 0;</code></pre>
+
+<p>== More DB performance! :)</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/24">
+<h1>localconf.php</h1>
+
+<pre class="sh_php"><code>$TYPO3_CONF_VARS['SYS']['systemLog'] = 'syslog,USER';
+$TYPO3_CONF_VARS['SYS']['systemLogLevel'] = '0';
+$TYPO3_CONF_VARS['SYS']['belogErrorReporting'] = 0;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/25">
+<p>Also make shure you enable PHP error logging in php.ini</p>
+
+<pre><code>log_errors = On
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/26">
+<h1>Example use cases</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/27">
+<ul>
+<li>Newsletter subscribe / unsubscribe</li>
+<li>User log in / out</li>
+<li>Failed Backend logins (Attacks?)</li>
+<li>Contact form submitted</li>
+</ul>
+
+
+<p class="notes">Q: Why do I need this when I have Google Analytics? A: Because
+you can manage your data more flexible</p></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="intro/presentation/28">
+<h1>Important</h1>
+
+<ul>
+<li>Write Logs!</li>
+<li>Whereever you feel the need</li>
+<li>Logs provide useful values</li>
+<li>Values can be collected for metrics</li>
+<li>Metrics show business patterns</li>
+<li>Beware of cached elements</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="intro/presentation/29">
+<h1>Measure to improve</h1></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="intro/presentation/30">
+<h1>You can&#x2019;t improve what you<br> don&#x2019;t measure.</br>
+
+<h4><a href="http://www.littlethingsmatter.com/blog/2010/08/23/you-cant-improve-what-you-dont-measure/">http://www.littlethingsmatter.com/blog/2010/08/23/you-cant-improve-what-you-dont-measure/</a></h4></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/31">
+<h1>Advanced metrics</h1></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="intro/presentation/32">
+<h1>User registrations</h1>
+
+<p><img src="./file/intro/graphite-registrations.png" alt="User registrations"/></p>
+
+<h4><a href="http://blog.pkhamre.com/2012/07/24/understanding-statsd-and-graphite/">http://blog.pkhamre.com/2012/07/24/understanding-statsd-and-graphite/</a></h4></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="intro/presentation/33">
+<h1>Render time</h1>
+
+<p><img src="./file/intro/graphite-render.png" alt="Site rener speed"/></p>
+
+<h4><a href="http://blog.pkhamre.com/2012/07/24/understanding-statsd-and-graphite/">http://blog.pkhamre.com/2012/07/24/understanding-statsd-and-graphite/</a></h4></div>
+</div><div class="slide" data-transition="none"><div class="content new-chapter center" ref="intro/presentation/34">
+<h1>Best practices</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/35">
+<h1>Normalize the logs</h1>
+
+<p>Convert different log formats into structured JSON objects</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/36">
+<p class="notes">Because the log formats differe A LOT, we need to normalize and
+enrich them</p>
+
+<h1>Proven Architecture</h1>
+
+<pre><code>                   fetch  convert  send
+TYPO3 ---&gt; SYSLOG &lt;-----  LOGSTASH ---&gt; WEB INTERFACE
+</code></pre>
+
+<p>Web Interfaces like Kibana, Graylog2</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/37">
+<h1>Logstash</h1>
+
+<p>Normalize logs &amp; creates structured JSON objects from plain text</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/38">
+<h1>Kibana</h1>
+
+<p>Focused on searching logs and statistics</p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/39">
+<h1>Graylog2</h1>
+
+<p>Focused on reporting and streamlining logs<br>
+Searching is a sub-feature</br></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/40">
+<h1>If in doubt</h1>
+
+<h1><em>log it!</em></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/presentation/41">
+<h1>Careful with user data</h1>
+
+<h1><em>only store anonymous IDs</em></h1></div>
+</div><div class="slide" data-transition="none"><div class="content new-chapter center" ref="intro/presentation/42">
+<h1>Showtime!</h1></div>
+</div><div class="slide" data-transition="none"><div class="content full" ref="intro/presentation/43">
+<p><img src="./file/intro/showtime-kibana.png" alt="Kibana Web Interface"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content new-chapter center" ref="thank_you/01_slide/1">
+<h1>Questions?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="thank_you/01_slide/2">
+<h1>Thanks!</h1>
+
+<p><a href="http://twitter.com/ctrabold">@ctrabold</a><br/>
+<a href="http://christian-trabold.de">http://christian-trabold.de</a></p></div>
+</div></div>
+
+</body>
+</html>
